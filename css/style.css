@@ -1,0 +1,85 @@
+/* -------------------------------------------------
+   Mother Day Gift – Pure Front‑end Style
+   Designed for mobile first, responsive on desktop.
+   Colors: soft pink/orange palette, gentle gradients.
+ ------------------------------------------------- */
+
+:root {
+  --primary: #ff6f91;   /* 主色 – 粉红 */
+  --secondary: #ffb88c; /* 辅助 – 橙 */
+  --bg: #fff9f2;       /* 背景淡粉 */
+  --card-bg: #ffffff;  /* 卡片背景 */
+  --text: #4a4a4a;     /* 主文字 */
+  --dim: #7a7a7a;      /* 次要文字 */
+  --radius: 12px;
+  --shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); min-height:100vh; }
+
+.container { max-width: 720px; margin:0 auto; padding: 0 16px; }
+
+header.header { text-align:center; padding: 40px 0 20px; }
+header .heart { font-size: 2.5rem; animation: beat 1.2s infinite; }
+@keyframes beat { 0%,100%{transform:scale(1);} 50%{transform:scale(1.2);} }
+header h1 { font-size: 1.8rem; margin: 12px 0 4px; color: var(--primary); }
+header .subtitle { font-size: 1rem; color: var(--dim); margin-bottom:8px; }
+header .clock { font-family: monospace; font-size:0.9rem; color: var(--secondary); }
+
+nav.nav { display:flex; justify-content:center; gap:8px; margin:20px 0; flex-wrap:wrap; }
+nav .nav-btn { background: var(--card-bg); border:none; padding:8px 12px; border-radius: var(--radius); font-size:0.9rem; color: var(--dim); display:flex; align-items:center; gap:4px; cursor:pointer; box-shadow: var(--shadow); transition:background 0.2s, color 0.2s; }
+nav .nav-btn.active, nav .nav-btn:hover { background: var(--secondary); color:#fff; }
+
+main.content .section { display:none; animation: fadeIn 0.4s forwards; }
+main .section.active { display:block; }
+@keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+
+.card { background: var(--card-bg); border-radius: var(--radius); padding:16px; margin-bottom:20px; box-shadow: var(--shadow); }
+.card h2 { margin-bottom:12px; color: var(--primary); font-size:1.2rem; }
+
+/* Blessing */
+.blessing-card { text-align:center; }
+.blessing-card .icon { font-size:2rem; margin-bottom:8px; }
+.blessing-text { font-size:1rem; margin:12px 0; }
+.btn-small { background: var(--secondary); color:#fff; border:none; padding:6px 10px; border-radius: var(--radius); cursor:pointer; font-size:0.85rem; }
+
+/* Reminder */
+.reminder-list { display:flex; flex-direction:column; gap:8px; }
+.reminder-item { display:flex; align-items:center; justify-content:space-between; background: var(--card-bg); padding:8px; border-radius: var(--radius); box-shadow: var(--shadow); }
+.reminder-item i { font-size:1.2rem; color: var(--primary); margin-right:8px; }
+.remind-btn { background: var(--primary); color:#fff; border:none; padding:6px 10px; border-radius: var(--radius); cursor:pointer; }
+.active-reminders { margin-top:12px; }
+.active-reminders ul { list-style:none; margin:8px 0; }
+.active-reminders li { font-size:0.9rem; margin:4px 0; }
+.btn-danger { background: #e53935; color:#fff; }
+
+/* Letter */
+#letter-content { width:100%; height:120px; padding:8px; border:1px solid #ddd; border-radius: var(--radius); resize:vertical; }
+.letter-actions { margin-top:8px; display:flex; gap:8px; }
+.btn-primary { background: var(--primary); color:#fff; border:none; padding:8px 12px; border-radius: var(--radius); cursor:pointer; }
+.btn-secondary { background: #b0bec5; color:#fff; border:none; padding:8px 12px; border-radius: var(--radius); cursor:pointer; }
+.saved-msg { margin-top:8px; color: var(--secondary); font-weight:bold; }
+
+/* Album */
+.album-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(100px,1fr)); gap:8px; }
+.album-item { position:relative; cursor:pointer; }
+.album-item img { width:100%; height:auto; border-radius: var(--radius); }
+
+/* Photo viewer */
+.photo-viewer { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); display:flex; align-items:center; justify-content:center; flex-direction:column; z-index:1000; }
+.photo-viewer img { max-width:90%; max-height:80%; border-radius: var(--radius); }
+.viewer-caption { margin-top:8px; color:#fff; }
+.viewer-close { position:absolute; top:20px; right:30px; font-size:2rem; color:#fff; cursor:pointer; }
+.viewer-nav { background:none; border:none; color:#fff; font-size:3rem; cursor:pointer; position:absolute; top:50%; transform:translateY(-50%); }
+.viewer-prev { left:20px; }
+.viewer-next { right:20px; }
+
+/* Music button */
+.music-btn { position:fixed; bottom:20px; right:20px; background: var(--primary); color:#fff; border:none; border-radius:50%; width:48px; height:48px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; cursor:pointer; box-shadow: var(--shadow); }
+
+/* Petal canvas */
+#petal-canvas { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:-1; }
+
+/* Footer */
+footer.footer { text-align:center; padding:12px 0; font-size:0.9rem; color: var(--dim); }
