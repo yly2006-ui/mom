@@ -204,23 +204,17 @@ function initAlbum() {
     const albumGrid = document.getElementById('album-grid');
     if (!albumGrid) return;
 
-    // Sample data (user can add more)
-    const albumData = JSON.parse(localStorage.getItem('momAlbum') || '[]');
-    // If nothing stored, use default sample
-    if (albumData.length === 0) {
-        albumData.push(
-            { src: 'images/mom1.jpg', thumb: 'images/mom1.jpg', caption: '和妈妈的第一次旅行' },
-            { src: 'images/mom2.jpg', thumb: 'images/mom2.jpg', caption: '生日蛋糕' }
-        );
-        // Note: this is just placeholder; user should put real images.
-    }
+    // 相册照片
+    const albumData = [
+        { src: 'images/mom1.jpg', thumb: 'images/mom1.jpg', caption: '' },
+        { src: 'images/mom2.jpg', thumb: 'images/mom2.jpg', caption: '' }
+    ];
 
     function render() {
         albumGrid.innerHTML = albumData.map((item, idx) => `
             <div class="album-item" data-idx="${idx}">
                 <img src="${item.thumb}" alt="${item.caption}" loading="lazy">
-                <div class="caption">${item.caption}</div>
-            </div>
+                            </div>
         `).join('');
 
         // Click to open viewer
@@ -250,7 +244,7 @@ function initAlbum() {
     function showInViewer() {
         const item = albumData[currentIdx];
         if (viewerImg) viewerImg.src = item.src;
-        if (viewerCaption) viewerCaption.textContent = item.caption;
+        if (viewerCaption) viewerCaption.textContent = '';
     }
 
     if (closeBtn) closeBtn.addEventListener('click', () => { viewer.style.display = 'none'; });
