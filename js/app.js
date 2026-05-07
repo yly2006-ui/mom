@@ -209,8 +209,8 @@ function initAlbum() {
     // If nothing stored, use default sample
     if (albumData.length === 0) {
         albumData.push(
-            { src: 'images/sample1.jpg', thumb: 'images/sample1_thumb.jpg', caption: '和妈妈的第一次旅行' },
-            { src: 'images/sample2.jpg', thumb: 'images/sample2_thumb.jpg', caption: '生日蛋糕' }
+            { src: 'images/mom1.jpg', thumb: 'images/mom1.jpg', caption: '和妈妈的第一次旅行' },
+            { src: 'images/mom2.jpg', thumb: 'images/mom2.jpg', caption: '生日蛋糕' }
         );
         // Note: this is just placeholder; user should put real images.
     }
